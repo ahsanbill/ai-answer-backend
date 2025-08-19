@@ -7,7 +7,7 @@ from config.settings import settings
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 app.register_blueprint(qa_bp)
 
 vs_service = VectorStoreService()
